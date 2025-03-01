@@ -1,0 +1,12 @@
+streamlit
+langchain
+langchain-openai
+azure-identity
+python-dotenv
+beautifulsoup4
+pypdf2
+faiss-cpu
+sentence-transformers
+langchain-google-genai
+langchain-community
+pypdf
