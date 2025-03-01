@@ -1,0 +1,10 @@
+<!-- dbService.xml -->
+<service name="updateInventory">
+  <invoke service="pub.db:executeSQL">
+    <input name="query" value="UPDATE Inventory SET stock = stock - ? WHERE itemId = ?"/>
+    <input name="parameters">
+      <param index="1" pipeline="quantity"/>
+      <param index="2" pipeline="itemId"/>
+    </input>
+  </invoke>
+</service>

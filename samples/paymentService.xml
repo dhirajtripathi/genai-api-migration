@@ -1,0 +1,13 @@
+<!-- paymentService.xml -->
+<service name="processPayment" type="REST">
+  <endpoint url="https://payment-gateway.com/api/pay" method="POST"/>
+  <input>
+    <field name="orderId" type="string"/>
+    <field name="amount" type="double"/>
+  </input>
+  <output>
+    <field name="transactionId" type="string"/>
+    <field name="status" type="string"/>
+  </output>
+  <header name="Content-Type" value="application/json"/>
+</service>

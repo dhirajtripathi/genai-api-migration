@@ -1,0 +1,27 @@
+<!-- flow.xml -->
+<flow name="processOrderFlow">
+  <sequence>
+    <invoke service="pub.flow:getInput">
+      <input name="orderId" type="string"/>
+      <input name="amount" type="double"/>
+    </invoke>
+    <branch on="$amount > 100">
+      <sequence label="highValueOrder">
+        <invoke service="pub.notify:sendEmail">
+          <input name="message" value="High value order detected"/>
+        </invoke>
+      </sequence>
+      <sequence label="normalOrder">
+        <invoke service="pub.db:insertRecord">
+          <input name="table" value="Orders"/>
+          <input name="orderId" pipeline="orderId"/>
+          <input name="amount" pipeline="amount"/>
+        </invoke>
+      </sequence>
+    </branch>
+    <invoke service="pub.file:writeToFile">
+      <input name="filePath" value="/logs/orders.txt"/>
+      <input name="data" pipeline="orderId"/>
+    </invoke>
+  </sequence>
+</flow>

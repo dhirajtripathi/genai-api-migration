@@ -1,0 +1,44 @@
+<flow name="complexOrderFlow">
+  <sequence>
+    <invoke service="pub.flow:getInput">
+      <input name="orderId" type="string"/>
+      <input name="items" type="documentList"/>
+    </invoke>
+    <loop over="items">
+      <sequence>
+        <invoke service="pub.db:query">
+          <input name="query" value="SELECT stock FROM Inventory WHERE itemId = ?"/>
+          <input name="parameters">
+            <param index="1" pipeline="items.itemId"/>
+          </input>
+          <output name="stock" type="integer"/>
+        </invoke>
+        <branch on="stock >= items.quantity">
+          <sequence label="sufficientStock">
+            <invoke service="pub.jms:send">
+              <input name="queue" value="OrderQueue"/>
+              <input name="message" pipeline="items"/>
+            </invoke>
+          </sequence>
+          <sequence label="insufficientStock">
+            <invoke service="pub.flow:throwException">
+              <input name="message" value="Insufficient stock for item"/>
+            </invoke>
+          </sequence>
+        </branch>
+      </sequence>
+    </loop>
+    <try>
+      <invoke service="pub.rest:post">
+        <input name="url" value="https://external-api.com/orders"/>
+        <input name="body" pipeline="orderId"/>
+      </invoke>
+      <catch>
+        <invoke service="pub.file:writeToFile">
+          <input name="filePath" value="/logs/errors.txt"/>
+          <input name="data" value="API call failed"/>
+        </invoke>
+      </catch>
+    </try>
+  </sequence>
+</flow>

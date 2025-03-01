@@ -1,0 +1,16 @@
+<!-- customerService.xml -->
+<service name="getCustomerDetails" type="SOAP">
+  <endpoint url="http://external-api.com/customers" method="POST"/>
+  <input>
+    <field name="customerId" type="string"/>
+  </input>
+  <output>
+    <field name="name" type="string"/>
+    <field name="email" type="string"/>
+  </output>
+  <transformation>
+    <map source="customerId" target="SOAPRequest.customerId"/>
+    <map source="SOAPResponse.name" target="name"/>
+    <map source="SOAPResponse.email" target="email"/>
+  </transformation>
+</service>

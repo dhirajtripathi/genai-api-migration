@@ -1,0 +1,11 @@
+<!-- fileTransfer.xml -->
+<service name="transferFile">
+  <invoke service="pub.file:readFile">
+    <input name="filePath" value="/input/orders.csv"/>
+    <output name="fileData" type="string"/>
+  </invoke>
+  <invoke service="pub.file:writeFile">
+    <input name="filePath" value="/output/orders_processed.csv"/>
+    <input name="data" pipeline="fileData"/>
+  </invoke>
+</service>
