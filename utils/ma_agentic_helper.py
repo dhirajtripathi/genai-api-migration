@@ -17,7 +17,7 @@ from graphviz import Source
 load_dotenv()
 
 # Initialize LLM with Gemini
-G_API_KEY = "AIzaSyBQmEldQBkdJ9QDszc-NdFYvl_3VGAEsjs"  # Replace with your actual Google API key
+G_API_KEY = "abcd"  # Replace with your actual Google API key
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=G_API_KEY, temperature=0.3)
 
 # Define state structure
