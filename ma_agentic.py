@@ -177,6 +177,19 @@ def main():
             st.markdown("Watch the agents collaborate, each enhancing the process with RAG and state sharing:")
             outputs = execute_full_workflow(inputs, uploaded_files)
 
+            st.subheader("Transformation Results")
+            st.markdown("Here’s the collective output from our multi-agent team:")
+            for tab, output in st.session_state.workflow_outputs.items():
+                with st.expander(f"{tab.upper()} Output (Agent: {tab_to_agent(tab)})", expanded=False):
+                    files_dict = parse_ai_response_to_files(output)
+                    for file_path, content in files_dict.items():
+                        st.subheader(file_path)
+                        st.markdown(content)
+
+            # Generate a combined ZIP of all outputs
+            create_combined_zip(st.session_state.workflow_outputs)
+
+
 def tab_to_agent(tab: str) -> str:
     mapping = {
         "tab1": "Analyzer",
