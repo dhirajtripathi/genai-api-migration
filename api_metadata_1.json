@@ -1,0 +1,24 @@
+[
+  {
+    "api_name": "Order API",
+    "api_description": "Manages customer orders for an e-commerce platform",
+    "api_path": "/orders",
+    "operations": [
+      {
+        "operation_name": "Create Order",
+        "method": "POST",
+        "description": "Creates a new customer order with items and shipping details"
+      },
+      {
+        "operation_name": "Get Order",
+        "method": "GET",
+        "description": "Retrieves details of a specific order by ID"
+      },
+      {
+        "operation_name": "Update Order",
+        "method": "PUT",
+        "description": "Updates an existing order’s status or details"
+      }
+    ]
+  }
+]

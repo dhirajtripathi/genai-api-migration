@@ -1,0 +1,19 @@
+[
+    {
+      "api_name": "Echo API",
+      "api_description": "A sample API for testing",
+      "api_path": "/echo",
+      "operations": [
+        {
+          "operation_name": "GET Resource",
+          "method": "GET",
+          "description": "Retrieves a resource"
+        },
+        {
+          "operation_name": "POST Resource",
+          "method": "POST",
+          "description": "Creates a resource"
+        }
+      ]
+    }
+  ]

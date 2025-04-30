@@ -1,0 +1,4 @@
+2025-04-25T06:15:33.099026 ERROR [auth-service] User authentication failed for user_id=12345
+2025-04-25T06:15:33.099037 WARN [order-service] Order processing delayed for order_id=98765
+2025-04-25T06:15:33.099038 INFO [payment-service] Payment processed for order_id=43210 amount=$99.99
+2025-04-25T06:15:33.099040 ERROR [api-gateway] 500 Internal Server Error on /checkout

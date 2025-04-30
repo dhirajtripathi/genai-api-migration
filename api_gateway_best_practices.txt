@@ -1,0 +1,8 @@
+# API Gateway Best Practices
+- Enforce rate limiting to protect backend services from overload (e.g., 100 requests/minute per user).
+- Implement authentication using OAuth 2.0 or API keys for secure access.
+- Enable caching for frequently accessed data to reduce latency (e.g., cache GET responses for 5 minutes).
+- Monitor API usage with analytics to track performance and detect anomalies.
+- Use request validation to block malformed or malicious inputs.
+- Configure CORS policies to control cross-origin requests.
+- Log all API requests and responses for auditing and debugging.

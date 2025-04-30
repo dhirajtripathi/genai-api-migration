@@ -1,0 +1,8 @@
+# API Design Best Practices
+- Design RESTful APIs with resource-oriented URLs (e.g., /orders/{orderId}).
+- Use API versioning in the path (e.g., /v1/payments) to manage changes.
+- Standardize on HTTP methods: GET for retrieval, POST for creation, PUT for updates, DELETE for removal.
+- Return JSON payloads with consistent structure, including error details (e.g., {"error": "Invalid request", "code": 400}).
+- Use clear, descriptive operation names (e.g., ProcessPayment instead of Pay).
+- Implement pagination for large datasets (e.g., ?page=1&size=20).
+- Validate input parameters to prevent errors and ensure security.

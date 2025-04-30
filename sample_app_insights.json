@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2025-04-25T06:15:33.099168",
+    "name": "Microsoft.ApplicationInsights.Request",
+    "operation_Name": "GET /api/products",
+    "resultCode": "200",
+    "duration": "120ms",
+    "success": true,
+    "cloud_RoleName": "product-api"
+  },
+  {
+    "timestamp": "2025-04-25T06:15:33.099172",
+    "name": "Microsoft.ApplicationInsights.Request",
+    "operation_Name": "POST /api/orders",
+    "resultCode": "500",
+    "duration": "450ms",
+    "success": false,
+    "cloud_RoleName": "order-api"
+  },
+  {
+    "timestamp": "2025-04-25T06:15:33.099174",
+    "name": "Microsoft.ApplicationInsights.Dependency",
+    "target": "SQL Database",
+    "type": "SQL",
+    "data": "SELECT * FROM products",
+    "duration": "30ms",
+    "success": true
+  }
+]

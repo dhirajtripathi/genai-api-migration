@@ -1,0 +1,22 @@
+{
+    "api_name": "Payment API",
+    "api_description": "Handles payment processing and refunds",
+    "api_path": "/payments",
+    "operations": [
+      {
+        "operation_name": "Process Payment",
+        "method": "POST",
+        "description": "Processes a payment for an order using credit card or wallet"
+      },
+      {
+        "operation_name": "Get Payment Status",
+        "method": "GET",
+        "description": "Retrieves the status of a payment by transaction ID"
+      },
+      {
+        "operation_name": "Refund Payment",
+        "method": "POST",
+        "description": "Initiates a refund for a completed payment"
+      }
+    ]
+}
